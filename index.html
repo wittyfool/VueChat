@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>My Vue App</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<!--
+<div v-bind:class="{ 'msg_right': msg[1] === 'msg_right', 'msg_left': msg[1] !== 'msg_right'}"> {{ msg[0] }}</div>
+-->
+
+  <div id="app">
+    <h1>My Todos</h1>
+    <ul>
+
+	<li v-for="msg in messages">
+	<div v-bind:class=" (msg[1] === 'msg_right') ? 'msg_right' : 'msg_left'"> {{ msg[0] }}</div>
+        </li>
+    </ul>
+    <form @submit.prevent="addItem">>
+      <input :disabled="inputDisabled" class="send_text" type="text" v-model="newItem">
+      <input type="submit" value="Add">
+    </form>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
